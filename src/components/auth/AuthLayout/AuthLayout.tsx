@@ -1,12 +1,14 @@
 import React from "react";
 import styles from "./styles.module.css";
 import { cn } from "../../../utils/util";
+import { useLoaderData } from "react-router-dom";
 
 interface AuthLayoutProps {
   children: React.ReactNode;
 }
 
 export default function AuthLayout({ children }: AuthLayoutProps) {
+  const data = useLoaderData() as FetchSchema.Hashnodeonboard;
   return (
     <>
       <button
@@ -59,19 +61,19 @@ export default function AuthLayout({ children }: AuthLayoutProps) {
           </div>
           <div className={styles.info}>
             <div className={styles.info_content}>
-              <p>{"data?.description"}</p>
+              <p>{data?.description}</p>
               <div className={styles.profile}>
                 <img
                   loading="lazy"
                   className="mr-6 rounded-full"
                   width={64}
                   height={64}
-                  //   src={data?.image}
+                  src={data?.image}
                   alt="profile"
                 />
                 <div>
-                  <h3 className="font-bold">{"data?.username"}</h3>
-                  <span className="font-normal">{"data?.job"}</span>
+                  <h3 className="font-bold">{data?.username}</h3>
+                  <span className="font-normal">{data?.job}</span>
                 </div>
               </div>
             </div>

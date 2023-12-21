@@ -6,6 +6,8 @@ use tauri::{
     AppHandle, CustomMenuItem, Manager, Runtime, SystemTray, SystemTrayEvent, SystemTrayMenu,
 };
 
+mod api;
+
 // Learn more about Tauri commands at https://tauri.app/v1/guides/features/command
 #[tauri::command]
 fn greet(name: &str) -> String {
@@ -69,7 +71,7 @@ fn main() -> Result<()> {
     let app = tauri::Builder::default()
         .system_tray(system_tray)
         .on_system_tray_event(on_tray_event)
-        .invoke_handler(tauri::generate_handler![greet])
+        .invoke_handler(tauri::generate_handler![greet, api::hashnode::onboard])
         .build(tauri::generate_context!())?;
 
     let main_window = create_main_window(&app)?;
