@@ -1,4 +1,4 @@
-import type { LoaderFunctionArgs } from "react-router-dom";
+import type { ActionFunctionArgs, LoaderFunctionArgs } from "react-router-dom";
 import SigninForm from "../components/auth/SigninForm/SigninForm";
 
 export const loader = (args: LoaderFunctionArgs) => {
@@ -7,12 +7,13 @@ export const loader = (args: LoaderFunctionArgs) => {
   return null;
 };
 
+export const action = (args: ActionFunctionArgs) => {
+  console.log("auth signin", args);
+  return null
+}
+
 export const routesId = "_auth.signin";
 
 export default function Routes() {
-  return (
-    <>
-      <SigninForm />
-    </>
-  );
+  return <SigninForm />;
 }

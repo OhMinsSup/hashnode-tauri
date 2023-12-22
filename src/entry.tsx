@@ -8,6 +8,7 @@ import AuthLayoutRoutes, {
 import AuthLoginRoutes, {
   routesId as authLoginRoutesId,
   loader as authLoginLoader,
+  action as authLoginAction,
 } from "./routes/_auth.signin";
 import AuthSignupRoutes, {
   routesId as authSignupRoutesId,
@@ -30,6 +31,7 @@ const router = createHashRouter([
         id: authLoginRoutesId,
         path: "signin",
         loader: authLoginLoader,
+        action: authLoginAction,
         Component: AuthLoginRoutes,
       },
       {
