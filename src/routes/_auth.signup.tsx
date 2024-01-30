@@ -1,4 +1,4 @@
-import { useLoaderData, type LoaderFunctionArgs } from "react-router-dom";
+import { useLoaderData, type LoaderFunctionArgs, ActionFunctionArgs } from "react-router-dom";
 import SigninForm from "../components/auth/SigninForm/SigninForm";
 
 export const loader = (args: LoaderFunctionArgs) => {
@@ -9,11 +9,16 @@ export const loader = (args: LoaderFunctionArgs) => {
   };
 };
 
+export const action = (args: ActionFunctionArgs) => {
+  console.log("action", args);
+  return null
+}
+
 export const routesId = "_auth.signup";
 
-export type RoutesLoader = ReturnType<typeof loader>;
+export type RoutesLoaderData = ReturnType<typeof loader>;
 
 export default function Routes() {
-  const { email } = useLoaderData() as RoutesLoader;
+  const { email } = useLoaderData() as RoutesLoaderData;
   return <SigninForm.Register email={email} />;
 }

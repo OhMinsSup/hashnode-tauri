@@ -14,6 +14,8 @@ export const action = (args: ActionFunctionArgs) => {
 
 export const routesId = "_auth.signin";
 
+export type RoutesLoaderData = ReturnType<typeof loader>;
+
 export default function Routes() {
   return <SigninForm />;
 }

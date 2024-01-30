@@ -12,6 +12,7 @@ import AuthLoginRoutes, {
 } from "./routes/_auth.signin";
 import AuthSignupRoutes, {
   routesId as authSignupRoutesId,
+  action as authSignupAction,
   loader as authSignupLoader,
 } from "./routes/_auth.signup";
 
@@ -38,6 +39,7 @@ const router = createHashRouter([
         id: authSignupRoutesId,
         path: "signup",
         loader: authSignupLoader,
+        action: authSignupAction,
         Component: AuthSignupRoutes,
       },
     ],
